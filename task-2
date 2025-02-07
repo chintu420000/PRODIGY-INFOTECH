@@ -1,0 +1,141 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="stopwatch">
+    <div id="time">00:00:00</div>
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div class="laps">
+      <h3>Lap Times</h3>
+      <ul id="lapList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+css:
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
+.stopwatch {
+  text-align: center;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#time {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+#start {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#pause {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+#reset {
+  background-color: #d9534f;
+  color: white;
+}
+
+.laps {
+  margin-top: 20px;
+}
+
+.laps ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.laps li {
+  margin-bottom: 10px;
+}
+javascript:
+let timer;
+let isRunning = false;
+let time = 0;
+let lapCount = 1;
+
+document.getElementById("start").addEventListener("click", startTimer);
+document.getElementById("pause").addEventListener("click", pauseTimer);
+document.getElementById("reset").addEventListener("click", resetTimer);
+
+function startTimer() {
+  if (!isRunning) {
+    isRunning = true;
+    timer = setInterval(updateTime, 1000);
+    document.getElementById("start").disabled = true;
+    document.getElementById("pause").disabled = false;
+  }
+}
+
+function pauseTimer() {
+  if (isRunning) {
+    clearInterval(timer);
+    isRunning = false;
+    document.getElementById("start").disabled = false;
+    document.getElementById("pause").disabled = true;
+  }
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  isRunning = false;
+  time = 0;
+  document.getElementById("start").disabled = false;
+  document.getElementById("pause").disabled = true;
+  document.getElementById("time").textContent = formatTime(time);
+  document.getElementById("lapList").innerHTML = '';
+  lapCount = 1;
+}
+
+function updateTime() {
+  time++;
+  document.getElementById("time").textContent = formatTime(time);
+}
+
+function formatTime(time) {
+  const hours = Math.floor(time / 3600);
+  const minutes = Math.floor((time % 3600) / 60);
+  const seconds = time % 60;
+
+  return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+}
+
+function padZero(number) {
+  return number < 10 ? "0" + number : number;
+}
