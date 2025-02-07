@@ -1,0 +1,215 @@
+html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Doe - Web Developer Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="home">
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <img src="profile.jpg" alt="John Doe" class="profile-photo">
+      <h1>Hello, I'm John Doe</h1>
+      <p>Web Developer | Frontend & Backend Specialist</p>
+      <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I'm a passionate web developer with a knack for creating dynamic and user-friendly websites. I specialize in full-stack web development, with expertise in HTML, CSS, JavaScript, React, Node.js, and more. I enjoy learning new technologies and solving challenging problems.</p>
+    <h3>Education</h3>
+    <p>Bachelor's in Computer Science - XYZ University (2018-2022)</p>
+    <h3>Professional Experience</h3>
+    <p>Junior Web Developer at ABC Company (2022-present)</p>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML5 & CSS3</li>
+      <li>JavaScript & ES6</li>
+      <li>React.js</li>
+      <li>Node.js & Express</li>
+      <li>MongoDB & SQL</li>
+      <li>Git & GitHub</li>
+      <li>Responsive Design</li>
+      <li>UI/UX Design</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <img src="project1.jpg" alt="Project 1">
+      <h3>Project 1: Personal Portfolio</h3>
+      <p>This is the website you're currently viewing. It demonstrates my skills in web design and development using HTML, CSS, and JavaScript.</p>
+      <a href="#">View Project</a>
+    </div>
+    <div class="project-card">
+      <img src="project2.jpg" alt="Project 2">
+      <h3>Project 2: E-commerce Website</h3>
+      <p>A fully functional e-commerce website with a shopping cart, product listing, and user authentication built using React and Node.js.</p>
+      <a href="#">View Project</a>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form action="submit_form.php" method="POST">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" required></textarea>
+      
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 John Doe | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
+css:
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  position: relative;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.hero {
+  margin-top: 20px;
+}
+
+.profile-photo {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2, h3 {
+  color: #333;
+}
+
+.cta-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #45a049;
+}
+
+.about, .skills, .projects, .contact {
+  padding: 40px;
+  text-align: center;
+}
+
+.projects .project-card {
+  display: inline-block;
+  width: 45%;
+  margin: 20px 2.5%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.projects img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.projects a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.contact form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact input, .contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.contact button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
